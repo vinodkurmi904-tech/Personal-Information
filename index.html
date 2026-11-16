@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal Information Management System">
+  <title>Personal Information Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <span class="brand-mark">P</span>
+        <div>
+          <strong>PersonalHub</strong>
+          <small>Information Manager</small>
+        </div>
+      </div>
+
+      <nav class="nav-menu" aria-label="Main navigation">
+        <a class="nav-link active" href="#dashboard" data-section="dashboard">▦ Dashboard</a>
+        <a class="nav-link" href="#profile" data-section="profile">◉ Personal Profile</a>
+        <a class="nav-link" href="#education" data-section="education">▤ Education</a>
+        <a class="nav-link" href="#skills" data-section="skills">✧ Skills & Interests</a>
+        <a class="nav-link" href="#contact" data-section="contact">✉ Contact Details</a>
+      </nav>
+
+      <div class="sidebar-note">
+        <strong>Your information, organized.</strong>
+        <p>Keep your personal profile up to date in one place.</p>
+      </div>
+      <div class="sidebar-footer">PersonalHub · Version 1.0</div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="menu-toggle" id="menuToggle">☰</button>
+        <div>
+          <span class="eyebrow">PERSONAL WORKSPACE</span>
+          <h1 id="pageTitle">Dashboard</h1>
+        </div>
+        <div class="top-actions">
+          <span class="local-status">● Saved on this device</span>
+          <button class="button button-light" id="exportBtn">Export data</button>
+        </div>
+      </header>
+
+      <section class="view active" id="dashboard">
+        <div class="welcome-banner">
+          <div>
+            <span class="eyebrow light">WELCOME TO PERSONALHUB</span>
+            <h2>Your personal information,<br>all in one place.</h2>
+            <p>Manage your profile, education, skills and contact details with ease.</p>
+            <button class="button button-white" data-go="profile">
+              Complete your profile →
+            </button>
+          </div>
+          <div class="banner-art">
+            <div class="art-circle">PH</div>
+            <div class="art-card">✦<br><small>YOUR PROFILE</small></div>
+          </div>
+        </div>
+
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">OVERVIEW</span>
+            <h2>Profile summary</h2>
+          </div>
+          <span class="muted" id="lastUpdated">Not updated yet</span>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card">
+            <div class="stat-icon blue">◉</div>
+            <span>Profile completion</span>
+            <strong id="completionStat">0%</strong>
+            <div class="progress-track"><div id="completionBar"></div></div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-icon purple">▤</div>
+            <span>Education records</span>
+            <strong id="educationStat">0</strong>
+            <small>Saved entries</small>
+          </article>
+          <article class="stat-card">
+            <div class="stat-icon orange">✧</div>
+            <span>Skills added</span>
+            <strong id="skillsStat">0</strong>
+            <small>Skills & interests</small>
+          </article>
+          <article class="stat-card">
+            <div class="stat-icon green">✉</div>
+            <span>Contact details</span>
+            <strong id="contactStat">0/3</strong>
+            <small>Email, phone, address</small>
+          </article>
+        </div>
+
+        <div class="dashboard-grid">
+          <article class="panel profile-preview">
+            <div class="panel-heading">
+              <div>
+                <span class="eyebrow">YOUR DETAILS</span>
+                <h3>Personal profile</h3>
+              </div>
+              <button class="text-button" data-go="profile">Edit profile →</button>
+            </div>
+
+            <div class="preview-person">
+              <div class="avatar large" id="dashboardAvatar"><img src="assets/profile-photo.png"alt="Vinod Gangwar"></div>
+              <div>
+                <h3 id="dashboardName">Vinod Gangwar</h3>
+                <p id="dashboardHeadline">BCA Student</p>
+              </div>
+            </div>
+
+            <div class="preview-details">
+              <div><span>Email</span><strong id="dashboardEmail">Not added</strong></div>
+              <div><span>Phone</span><strong id="dashboardPhone">Not added</strong></div>
+              <div><span>Location</span><strong id="dashboardLocation">India</strong></div>
+            </div>
+          </article>
+
+          <article class="panel quick-actions">
+            <div class="panel-heading">
+              <div>
+                <span class="eyebrow">GET STARTED</span>
+                <h3>Quick actions</h3>
+              </div>
+            </div>
+            <button class="quick-action" data-go="profile">
+              <span class="quick-icon blue">＋</span>
+              <span><strong>Update personal details</strong><small>Add your name, photo and bio</small></span>
+              <b>→</b>
+            </button>
+            <button class="quick-action" data-go="education">
+              <span class="quick-icon purple">▤</span>
+              <span><strong>Add education</strong><small>Record your academic history</small></span>
+              <b>→</b>
+            </button>
+            <button class="quick-action" data-go="skills">
+              <span class="quick-icon orange">✧</span>
+              <span><strong>Add skills and interests</strong><small>Show what you can do</small></span>
+              <b>→</b>
+            </button>
+          </article>
+        </div>
+
+        <div class="privacy-note">
+          <span>🔒</span>
+          <div>
+            <strong>Your privacy matters</strong>
+            <p>This project stores information in your browser's local storage.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="view" id="profile">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">ABOUT YOU</span>
+            <h2>Personal profile</h2>
+            <p class="muted">Manage your personal information.</p>
+          </div>
+        </div>
+
+        <form class="panel form-panel" id="profileForm">
+          <div class="form-section-title">
+            <div class="avatar profile-avatar" id="profileAvatar">V</div>
+            <div>
+              <h3>Profile information</h3>
+              <p class="muted">Your name and introduction.</p>
+            </div>
+            <label class="button button-light upload-button" for="photoInput">Upload photo</label>
+            <input id="photoInput" type="file" accept="image/*" hidden>
+          </div>
+
+          <div class="form-grid">
+            <label>Full name
+              <input id="fullName" type="text" maxlength="80">
+            </label>
+            <label>Profile headline
+              <input id="headline" type="text" maxlength="100">
+            </label>
+            <label>Date of birth
+              <input id="dob" type="date">
+            </label>
+            <label>Gender
+              <select id="gender">
+                <option value="">Select gender</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+                <option>Prefer not to say</option>
+              </select>
+            </label>
+            <label class="full-width">About me
+              <textarea id="about" rows="4" maxlength="600"></textarea>
+            </label>
+          </div>
+
+          <div class="form-actions">
+            <button type="reset" class="button button-light">Reset form</button>
+            <button class="button button-primary" type="submit">Save personal details</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="view" id="education">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">ACADEMIC HISTORY</span>
+            <h2>Education details</h2>
+            <p class="muted">Maintain your educational qualifications.</p>
+          </div>
+          <button class="button button-primary" id="addEducationBtn">＋ Add education</button>
+        </div>
+        <div class="panel">
+          <div id="educationList" class="record-list"></div>
+        </div>
+      </section>
+
+      <section class="view" id="skills">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">YOUR STRENGTHS</span>
+            <h2>Skills & interests</h2>
+          </div>
+        </div>
+
+        <form class="panel inline-form" id="skillForm">
+          <label class="grow">Add a skill or interest
+            <input id="skillInput" type="text" maxlength="40">
+          </label>
+          <button class="button button-primary" type="submit">＋ Add item</button>
+        </form>
+
+        <div class="panel">
+          <div class="panel-heading">
+            <h3>Your skills and interests</h3>
+            <span class="count-pill" id="skillCount">0 items</span>
+          </div>
+          <div id="skillList" class="skill-list"></div>
+        </div>
+      </section>
+
+      <section class="view" id="contact">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">STAY CONNECTED</span>
+            <h2>Contact details</h2>
+          </div>
+        </div>
+
+        <form class="panel form-panel" id="contactForm">
+          <div class="form-grid">
+            <label>Email address<input id="email" type="email"></label>
+            <label>Phone number<input id="phone" type="tel"></label>
+            <label class="full-width">Address<textarea id="address" rows="3"></textarea></label>
+            <label>Country<input id="country" type="text"></label>
+            <label>LinkedIn profile<input id="linkedin" type="url"></label>
+            <label>GitHub profile<input id="github" type="url"></label>
+            <label>Instagram profile<input id="instagram" type="url"></label>
+            <label>Facebook profile<input id="facebook" type="url"></label>
+          </div>
+
+          <div class="form-actions">
+            <button type="reset" class="button button-light">Reset form</button>
+            <button class="button button-primary" type="submit">Save contact details</button>
+          </div>
+        </form>
+      </section>
+
+      <footer class="main-footer">
+        © 2026 Vinod Gangwar | Personal Information Management System
+      </footer>
+    </main>
+  </div>
+
+  <dialog id="educationDialog" class="modal">
+    <form id="educationForm" method="dialog">
+      <div class="modal-heading">
+        <div>
+          <span class="eyebrow">ACADEMIC RECORD</span>
+          <h2 id="educationDialogTitle">Add education</h2>
+        </div>
+        <button type="button" class="icon-button" id="closeDialog">×</button>
+      </div>
+
+      <input type="hidden" id="educationId">
+
+      <label>Qualification / Course
+        <input id="course" required maxlength="100">
+      </label>
+      <label>Institution name
+        <input id="institution" required maxlength="120">
+      </label>
+
+      <div class="form-grid two">
+        <label>Start year<input id="startYear" type="number" min="1950" max="2100"></label>
+        <label>End year<input id="endYear" type="number" min="1950" max="2100"></label>
+      </div>
+
+      <label>Grade / Result
+        <input id="grade" maxlength="40">
+      </label>
+
+      <div class="form-actions">
+        <button type="button" class="button button-light" id="cancelDialog">Cancel</button>
+        <button type="submit" class="button button-primary">Save education</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
